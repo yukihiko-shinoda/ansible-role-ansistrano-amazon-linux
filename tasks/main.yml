@@ -1,0 +1,14 @@
+---
+- name: pip modules to secure access to Ansible Galaxy
+  pip:
+    name: "{{ item }}"
+    executable: /usr/local/pyenv/shims/pip
+  with_items:
+    - urllib3
+    - pyOpenSSL
+    - ndg-httpsclient
+    - pyasn1
+
+- name: deploy ansistrano
+  command: /usr/local/pyenv/shims/ansible-galaxy install carlosbuenosvinos.ansistrano-deploy carlosbuenosvinos.ansistrano-rollback
+  become_user: "{{ roles_common_deploy_user }}"
