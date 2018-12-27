@@ -10,5 +10,5 @@
     - pyasn1
 
 - name: deploy ansistrano
-  command: "{{ '/opt/pyenv/shims/'  if ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6' else '' }}ansible-galaxy install carlosbuenosvinos.ansistrano-deploy carlosbuenosvinos.ansistrano-rollback"
+  command: "{{ '/opt/pyenv/shims/'  if ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6' else '' }}ansible-galaxy install ansistrano.deploy ansistrano.rollback"
   become_user: "{{ roles_common_deploy_user }}"
